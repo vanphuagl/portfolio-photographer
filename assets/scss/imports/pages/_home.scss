@@ -1,0 +1,327 @@
+/* -------------------------------------------------------------------------- */
+/*                                  home page                                 */
+/* -------------------------------------------------------------------------- */
+
+.p-home {
+  // hero
+
+  .hero {
+    padding-block-start: 120px;
+    text-align: center;
+
+    .hero-banner {
+      max-width: 150px;
+      margin-inline: auto;
+      margin-block-end: 20px;
+    }
+
+    .strong.active .out {
+      opacity: 1;
+      transform: scale(1);
+      animation: textWave 0.2s ease reverse forwards;
+    }
+
+    .wrapper {
+      position: relative;
+      text-align: left;
+      height: 1.2em;
+      margin-block: 10px 25px;
+
+      .strong {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        font-weight: inherit;
+        display: flex;
+      }
+
+      .space {
+        padding: 0.1em;
+      }
+
+      :is(.in, .out) {
+        opacity: 0;
+        transform: scaleY(0);
+      }
+
+      .in {
+        animation: textWave 0.2s ease forwards;
+      }
+    }
+
+    .hero-text {
+      font-size: $fs-10;
+      font-weight: $fw-300;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+  }
+
+  // gallery
+
+  .gallery {
+    .gallery-list {
+      display: grid;
+      gap: 30px;
+    }
+
+    .gallery-item,
+    .gallery-card {
+      position: relative;
+    }
+
+    .gallery-card {
+      animation: changeCard 10s linear infinite;
+
+      & :is(.card-content, .btn-icon) {
+        position: absolute;
+        z-index: 1;
+      }
+
+      .card-content {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 12px;
+      }
+
+      .card-title {
+        font-weight: $fw-400;
+        max-width: max-content;
+        margin-block-end: 2px;
+
+        &:is(:hover, :focus-visible) {
+          text-decoration: underline;
+        }
+      }
+
+      .card-tag {
+        color: $white_a70;
+        font-size: $fs-9;
+        font-weight: $fw-300;
+      }
+
+      .btn-icon {
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        --border-radius: 0 0 0 25px;
+
+        &:is(:hover, :focus-visible) {
+          border-bottom-left-radius: $radius-5;
+        }
+
+        img {
+          width: 25px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    .gallery-item .gallery-card:last-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      visibility: hidden;
+      animation-delay: 5s;
+    }
+
+    .gallery-item:is(:hover, :focus-within) .gallery-card {
+      animation-play-state: paused;
+    }
+
+    .scroll-down {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-content: center;
+      margin-inline: auto;
+      margin-block-start: 55px;
+      border: 1px solid $white_a15;
+      border-radius: $radius-circle;
+      transition: $transition-2;
+      animation: scrollDown 2.5s linear infinite alternate;
+
+      img {
+        width: 22px;
+      }
+
+      &:is(:hover, :focus-visible) {
+        background-color: var(--radical-red);
+        border-color: var(--radical-red);
+      }
+    }
+  }
+
+  // category
+
+  .category {
+    --section-padding: 40px;
+    border-block: 1px solid $white_a9;
+
+    .category-list {
+      @include mid(true);
+      flex-wrap: wrap;
+      gap: 35px 10px;
+    }
+
+    .category-item {
+      max-width: calc(50% - 5px);
+    }
+
+    .category-card {
+      .card-title {
+        color: $white_a25;
+        margin-block-end: 10px;
+        text-align: center;
+        transition: $transition-2;
+      }
+
+      &:is(:hover, :focus-visible) .card-title {
+        color: var(--white);
+      }
+    }
+  }
+
+  // about
+
+  .about {
+    .container {
+      display: grid;
+      gap: 45px;
+    }
+
+    .wrapper,
+    .about-banner {
+      padding-inline-start: 45px;
+    }
+
+    .section-title {
+      margin-block-end: 35px;
+    }
+
+    .section-text {
+      font-size: $fs-6;
+      color: $white-a70;
+      font-weight: $fw-300;
+      line-height: 1.7;
+      margin-block-end: 35px;
+
+      .em {
+        color: $white;
+        font-weight: $fw-400;
+        text-decoration: underline;
+      }
+    }
+
+    .wrapper::before {
+      top: 10px;
+      left: 0;
+      background-image: url("../img/about-quote.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 20px;
+      height: 20px;
+    }
+
+    .about-banner {
+      position: relative;
+    }
+
+    .shape-1 {
+      display: block;
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      z-index: 1;
+      width: 100px;
+    }
+  }
+
+  // service
+  .service {
+    padding-inline: 15px;
+
+    .section-subtitle {
+      padding-inline: 10px;
+      margin-block-end: 55px;
+    }
+
+    .service-card {
+      padding: 30px 10px;
+
+      .img {
+        display: none;
+      }
+
+      .card-subtitle {
+        color: $white_a50;
+        font-size: $fs-7;
+        font-weight: $fw-300;
+        line-height: 1.5;
+        margin-block: 10px 25px;
+      }
+
+      .btn-icon {
+        width: 55px;
+        height: 55px;
+        border: 1px solid $white;
+        --bg-color: transparent;
+        --hover-bg-color: #fff;
+        --hover-text-color: #000;
+
+        svg {
+          width: 25px;
+        }
+      }
+    }
+
+    .service-list > li:not(:last-child) {
+      border-block-start: 1px solid $white_a9;
+    }
+
+    .service-list > li:last-child {
+      border-block: 1px solid $white_a9;
+    }
+  }
+}
+
+@keyframes textWave {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes changeCard {
+  0%,
+  55%,
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  5%,
+  50% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(12px);
+  }
+}

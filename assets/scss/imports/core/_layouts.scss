@@ -1,0 +1,144 @@
+/* layout
+------------------------------------------------------------*/
+li {
+  list-style: none;
+}
+
+a,
+img,
+span,
+button,
+ion-icon {
+  display: block;
+}
+
+img {
+  height: auto;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+address {
+  font-style: normal;
+}
+
+html {
+  font-family: $ff-gordita;
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $smokey-black;
+  color: $white;
+  font-size: 1.6rem;
+  font-weight: $fw-400;
+  line-height: 2.15;
+  overflow-x: hidden;
+
+  &.active {
+    overflow: hidden;
+  }
+}
+
+:focus-visible {
+  outline-offset: 4px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $jet-2;
+}
+
+//-------------------------------------------------------
+.container {
+  padding-inline: 15px;
+}
+
+.section {
+  padding-block: $section-padding;
+}
+
+.section-subtitle {
+  color: $white_a25;
+  font-size: $fs-7;
+  text-transform: uppercase;
+  letter-spacing: 3.5px;
+}
+
+.shape {
+  display: none;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: $ff-recoleta;
+  line-height: 1.2;
+}
+
+.h1 {
+  font-size: $fs-1;
+  font-weight: $fw-400;
+}
+
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: $fw-300;
+}
+
+.h2 {
+  font-size: $fs-2;
+}
+
+.h3 {
+  font-size: $fs-3;
+}
+
+.h4 {
+  font-size: $fs-4;
+}
+
+.h5 {
+  font-size: $fs-5;
+}
+
+.h6 {
+  font-size: $fs-6;
+}
+
+.sp-only {
+  display: none;
+}
+@include maxW(767px) {
+  .pc-only {
+    display: none;
+  }
+
+  .sp-only {
+    display: block;
+  }
+}
+//-------------------------------------------------------
